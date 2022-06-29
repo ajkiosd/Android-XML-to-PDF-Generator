@@ -218,7 +218,10 @@ public class PdfGenerator {
         }
 
         private void dealAfterGeneration(ActionAfterPDFGeneration actionAfterPDFGeneration) {
-            return;
+            if (actionAfterPDFGeneration == ActionAfterPDFGeneration.SHARE) {               
+                return;
+            }
+            
             try {
                 File file = new File(targetPdf);
                 if (file.exists()) {
