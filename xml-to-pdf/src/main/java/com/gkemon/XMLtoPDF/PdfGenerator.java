@@ -152,7 +152,9 @@ public class PdfGenerator {
 
         Build setFolderNameOrPath(String folderName);
 
-        Build actionAfterPDFGeneration(ActionAfterPDFGeneration open);
+        Build actionAfterPDFGeneration(ActionAfterPDFGeneration 
+                                      
+                                      );
 
         Build setPrintingMode(PrintingMode printingMode);
 
@@ -218,6 +220,7 @@ public class PdfGenerator {
         }
 
         private void dealAfterGeneration(ActionAfterPDFGeneration actionAfterPDFGeneration) {
+            return;
             try {
                 File file = new File(targetPdf);
                 if (file.exists()) {
