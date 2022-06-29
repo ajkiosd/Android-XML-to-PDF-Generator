@@ -152,7 +152,7 @@ public class PdfGenerator {
 
         Build setFolderNameOrPath(String folderName);
 
-        Build actionAfterPDFGeneration(ActionAfterPDFGeneration);
+        Build actionAfterPDFGeneration(ActionAfterPDFGeneration open);
 
         Build setPrintingMode(PrintingMode printingMode);
 
