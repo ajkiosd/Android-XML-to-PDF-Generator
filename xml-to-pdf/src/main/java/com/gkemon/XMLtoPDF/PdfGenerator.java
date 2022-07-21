@@ -145,12 +145,13 @@ public class PdfGenerator {
 
     public interface FileNameStep {
         Build setFileName(String fileName);
-        Build setFileDir(String fileDir);
     }
 
     public interface Build {
         void build(PdfGeneratorListener pdfGeneratorListener);
 
+        Build setRootFolderPath(String folderName);
+        
         Build setFolderNameOrPath(String folderName);
 
         Build actionAfterPDFGeneration(ActionAfterPDFGeneration open);
@@ -502,16 +503,16 @@ public class PdfGenerator {
             this.folderName = folderName;
             return this;
         }
-
+        
         @Override
-        public Build setFileName(String fileName) {
-            this.fileName = fileName;
+        public Build setRootFolderPath(String folderName) {
+            this.directoryPath = folderName;
             return this;
         }
 
         @Override
-        public Build setFileDir(String fileDir) {
-            this.directoryPath = directoryPath;
+        public Build setFileName(String fileName) {
+            this.fileName = fileName;
             return this;
         }
 
