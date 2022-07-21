@@ -325,8 +325,8 @@ public class PdfGenerator {
                     }
 
                     //This is for prevent crashing while opening generated PDF.
-                    StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
-                    StrictMode.setVmPolicy(builder.build());
+                    //StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+                    //StrictMode.setVmPolicy(builder.build());
 
                     //setUpDirectoryPath(context);
 
