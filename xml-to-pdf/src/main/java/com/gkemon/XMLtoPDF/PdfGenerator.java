@@ -422,39 +422,39 @@ public class PdfGenerator {
         @Override
         public void build(PdfGeneratorListener pdfGeneratorListener) {
             this.pdfGeneratorListener = pdfGeneratorListener;
-            if (hasAllPermission(context)) {
-                print();
-            } else {
-                postLog("WRITE_EXTERNAL_STORAGE and READ_EXTERNAL_STORAGE Permission is not given." +
-                        " Permission taking popup (using https://github.com/Karumi/Dexter) is going " +
-                        "to be shown");
-                Dexter.withContext(context)
-                        .withPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
-                        .withListener(new MultiplePermissionsListener() {
-                            @Override
-                            public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
-
-                                for (PermissionDeniedResponse deniedResponse : multiplePermissionsReport.getDeniedPermissionResponses()) {
-                                    postLog("Denied permission: " + deniedResponse.getPermissionName());
-                                }
-                                for (PermissionGrantedResponse grantedResponse : multiplePermissionsReport.getGrantedPermissionResponses()) {
-                                    postLog("Granted permission: " + grantedResponse.getPermissionName());
-                                }
-                                if (multiplePermissionsReport.areAllPermissionsGranted()) {
-                                    print();
-                                } else
-                                    postLog("All necessary permission is not granted by user.Please do that first");
-
-                            }
-
-                            @Override
-                            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> list, PermissionToken permissionToken) {
-
-                            }
-                        })
-                        .withErrorListener(error -> postLog("Error from Dexter (https://github.com/Karumi/Dexter) : " +
-                                error.toString())).check();
-            }
+            //if (hasAllPermission(context)) {
+            //    print();
+            //} else {
+            //    postLog("WRITE_EXTERNAL_STORAGE and READ_EXTERNAL_STORAGE Permission is not given." +
+            //            " Permission taking popup (using https://github.com/Karumi/Dexter) is going " +
+            //            "to be shown");
+            //    Dexter.withContext(context)
+            //            .withPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
+            //            .withListener(new MultiplePermissionsListener() {
+            //                @Override
+            //                public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
+//
+            //                    for (PermissionDeniedResponse deniedResponse : multiplePermissionsReport.getDeniedPermissionResponses()) {
+            //                        postLog("Denied permission: " + deniedResponse.getPermissionName());
+            //                    }
+            //                    for (PermissionGrantedResponse grantedResponse : multiplePermissionsReport.getGrantedPermissionResponses()) {
+            //                        postLog("Granted permission: " + grantedResponse.getPermissionName());
+            //                    }
+            //                    if (multiplePermissionsReport.areAllPermissionsGranted()) {
+            //                        print();
+            //                    } else
+            //                        postLog("All necessary permission is not granted by user.Please do that first");
+//
+            //                }
+//
+            //                @Override
+            //                public void onPermissionRationaleShouldBeShown(List<PermissionRequest> list, PermissionToken permissionToken) {
+//
+            //                }
+            //            })
+            //            .withErrorListener(error -> postLog("Error from Dexter (https://github.com/Karumi/Dexter) : " +
+            //                    error.toString())).check();
+            //}
 
         }
 
