@@ -422,6 +422,7 @@ public class PdfGenerator {
         @Override
         public void build(PdfGeneratorListener pdfGeneratorListener) {
             this.pdfGeneratorListener = pdfGeneratorListener;
+            print();
             //if (hasAllPermission(context)) {
             //    print();
             //} else {
