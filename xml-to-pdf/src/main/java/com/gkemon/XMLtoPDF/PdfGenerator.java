@@ -145,6 +145,7 @@ public class PdfGenerator {
 
     public interface FileNameStep {
         Build setFileName(String fileName);
+        Build setFileDir(String fileDir);
     }
 
     public interface Build {
@@ -326,7 +327,7 @@ public class PdfGenerator {
                     StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
                     StrictMode.setVmPolicy(builder.build());
 
-                    setUpDirectoryPath(context);
+                    //setUpDirectoryPath(context);
 
                     if (TextUtils.isEmpty(directoryPath)) {
                         postFailure("Cannot find the storage path to create the pdf file.");
@@ -508,6 +509,11 @@ public class PdfGenerator {
             return this;
         }
 
+        @Override
+        public Build setFileDir(String fileDir) {
+            this.directoryPath = directoryPath;
+            return this;
+        }
 
         @Override
         public FileNameStep fromViewID(@NonNull Activity activity, @IdRes Integer... xmlResourceList) {
